@@ -49,17 +49,31 @@
         }
         #bottom {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-around;
             padding-top: 200px;
             align-items: flex-end;
         }
+        #bottom div {
+            max-width: 300px;
+            text-align: center;
+        }
         #bloemPotFoto {
-            width: 200px;
-            height: 200px;
+            width: 100%
         }
         #bloemPot {
 
         }
+
+        #timer h2{
+            font-size: 2.5em;
+            width: 300px;
+        }
+        #water h2 {
+            font-size: 2.5em;
+            width: 300px;
+        }
+
+        
     </style>
 </head>
 <body>
@@ -82,38 +96,19 @@
                 </h2>
             </div>
             <div id="bloemPot">
-                <button type="button">
+                <button type="button" id="bloemPotKnop">
                     <img src="Images/BloemPot.png" id="bloemPotFoto">
                 </button>
             </div>
             <div id="water">
-                Water
+                <h2>
+                    Water
+                </h2>
             </div>
         </section>
     </form>
 
-    <script>
-        let fruits = document.querySelectorAll('button');
-        let seed = document.getElementById('seed');
-
-        fruits.forEach(fruit => {
-            fruit.addEventListener('click', (e) => {
-                if (seed.innerText == e.target.innerText) {
-                    seed.innerText = '🌱';
-                } else {
-                    seed.innerText = e.target.innerText;
-                }
-                seed.innerText = e.target.innerText; //verandert de tekst van de seed naar de tekst van de fruit
-            });
-        });
-
-        const onMouseMove = (e) => {
-            seed.style.left = e.pageX-22 + 'px';
-            seed.style.top = e.pageY-20 + 'px';
-            seed.style.cursor = 'pointer';
-        }
-
-        document.addEventListener('mousemove', onMouseMove);
+    <script src="script.js">
     </script>
 </body>
 </html>
