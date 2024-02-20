@@ -1,114 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plant your Fruit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'K2D', sans-serif;
-            margin: 0;
-        }
-        h1 {
-            text-align: center;
-            font-size: 3.5em;
-        }
-        button {
-            border: none;
-            background-color: white;
-            cursor: pointer;
-        }
-        #Fruits {
-            margin: auto;
-            display: flex;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            gap: 20px;
-            width: 80%;
-            margin-top: 60px;
-        }
-        #Fruits button {
-            font-size: 2em;
-            border: 3px solid black;
-            padding: 25px;
-            border-radius: 10%;
-        }
-        #Fruits button:hover {
-            background-color: rgb(233, 253, 221);
-            box-shadow: 0 0 11px rgba(33,33,33,.2); 
-        }
-        #seed {
-            position: absolute;
-            font-size: 2em;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
-        #bottom {
-            display: flex;
-            justify-content: space-around;
-            padding-top: 200px;
-            align-items: flex-end;
-        }
-        #bottom div {
-            max-width: 300px;
-            text-align: center;
-        }
-        #bloemPotFoto {
-            width: 100%
-        }
-        #bloemPot {
+      body {
+        font-family: "K2D", sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      h1 {
+        text-align: center;
+        font-size: 3.5em;
+      }
+      button {
+        border: none;
+        background-color: white;
+        cursor: pointer;
+      }
+      #Fruits {
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 80%;
+        margin-top: 60px;
+      }
+      #Fruits button {
+        font-size: 2em;
+        border: 3px solid black;
+        padding: 25px;
+        border-radius: 10%;
+      }
+      #Fruits button:hover {
+        background-color: rgb(233, 253, 221);
+        box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+      }
+      #seed {
+        position: absolute;
+        font-size: 2em;
+        transform: translate(-50%, -50%);
+      }
+      .seedAnimation {
+        animation: seed 2s ease-in-out forwards;
+      }
 
-        }
+      #bottom {
+        display: flex;
+        justify-content: space-around;
+        padding-top: max(10%, 50px);
+        align-items: flex-end;
+      }
+      #bottom div {
+        max-width: 300px;
+        text-align: center;
+      }
+      #bloemPotFoto {
+        width: 100%;
+      }
 
-        #timer h2{
-            font-size: 2.5em;
-            width: 300px;
-        }
-        #water h2 {
-            font-size: 2.5em;
-            width: 300px;
-        }
+      #timer h2 {
+        font-size: 2.5em;
+        width: 300px;
+      }
 
-        
+      #water {
+        width: 300px;
+      }
+      #water2 {
+        width: 300px;
+        position: absolute;
+        display: none;
+      }
+
+      #waterBottleFoto {
+        width: 60%;
+        cursor: pointer;
+      }
+
+      #waterBottleFoto2 {
+        width: 60%;
+        cursor: pointer;
+      }
+
+      @keyframes seed {
+        /*bring seed to center of screen*/
+        0% {
+          left: 50%;
+          top: 50%;
+        }
+        99% {
+          left: 50%;
+          top: 70%;
+        }
+        100% {
+          /*disappear*/
+          opacity: 0;
+        }
+      }
     </style>
-</head>
-<body>
-    <h1>
-        Plant your Fruit
-    </h1>
-        <form action="">
-            <section id="Fruits">
-            <button type="button">🍉</button>
-            <button type="button">🍓</button>
-            <button type="button">🍎</button>
-            <button type="button">🍒</button>
-            <button type="button">🥭</button>    
-        </section>         
-        <div id="seed">🫘</div>  
-        <section id="bottom">
-            <div id="timer">
-                <h2>
-                    00:00:00
-                </h2>
-            </div>
-            <div id="bloemPot">
-                <button type="button" id="bloemPotKnop">
-                    <img src="Images/BloemPot.png" id="bloemPotFoto">
-                </button>
-            </div>
-            <div id="water">
-                <h2>
-                    Water
-                </h2>
-            </div>
-        </section>
+  </head>
+  <body>
+    <h1>Plant your Fruit</h1>
+    <form action="">
+      <section id="Fruits">
+        <button type="button" id="mellon">🍉</button>
+        <button type="button" id="strawberry">🍓</button>
+        <button type="button" id="apple">🍎</button>
+        <button type="button" id="cherry">🍒</button>
+        <button type="button" id="mango">🥭</button>
+      </section>
+      <div id="seed"></div>
+      <section id="bottom">
+        <div id="timer">
+          <h2 id="timerText">00:00:00</h2>
+        </div>
+        <div id="bloemPot">
+          <button type="button" id="bloemPotKnop">
+            <img src="Images/BloemPot.svg" id="bloemPotFoto" />
+          </button>
+        </div>
+        <div id="water">
+          <img src="Images/WaterBottle.svg" id="waterBottleFoto" />
+        </div>
+      </section>
     </form>
+    <div id="water2">
+      <img src="Images/WaterBottle.svg" id="waterBottleFoto2" />
+    </div>
 
-    <script src="script.js">
-    </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
